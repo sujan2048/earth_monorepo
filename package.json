@@ -1,0 +1,49 @@
+{
+  "name": "refactor_monorepo",
+  "author": "KrazyPhish",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "lint:prettier": "prettier --write \"**/*.{js,ts,mjs,cjs,json,tsx,css,less,scss,vue,html,md}\"",
+    "lint:eslint": "eslint",
+    "lint:cspell": "cspell lint \"**/*.{js,ts,mjs,cjs,json,css,less,scss,vue,html,md}\"",
+    "commit": "git-cz",
+    "cz": "cross-env NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning' czg",
+    "prepare": "husky",
+    "precommit": "npx lint-staged --config lint-staged.config.ts"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git"
+    }
+  },
+  "keywords": [],
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.2",
+  "engines": {
+    "node": ">=24.12.0",
+    "npm": ">=11.5.2",
+    "pnpm": ">=10.26.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.2.0",
+    "@commitlint/config-conventional": "^20.2.0",
+    "@cspell/dict-lorem-ipsum": "^4.0.5",
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^25.0.3",
+    "commitizen": "^4.3.1",
+    "cspell": "^9.4.0",
+    "cz-git": "^1.12.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-vue": "^10.6.2",
+    "globals": "^16.5.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.51.0"
+  }
+}

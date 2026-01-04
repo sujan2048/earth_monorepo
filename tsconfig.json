@@ -1,0 +1,26 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "ESNext",
+    "target": "ES2015",
+    "lib": ["ESNext"],
+    "declaration": false,
+    "downlevelIteration": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "noUnusedParameters": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "ignoreDeprecations": "6.0",
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "experimentalDecorators": true
+  },
+  "exclude": ["node_modules", "dist"]
+}
