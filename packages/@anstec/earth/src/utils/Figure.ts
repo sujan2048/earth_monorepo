@@ -1,7 +1,7 @@
 import {
   Cartographic,
   Rectangle,
-  Math,
+  Math as CzmMath,
   TerrainProvider,
   Cartesian3,
   Scene,
@@ -13,7 +13,7 @@ import { Geographic } from "../components/coordinate"
 import { EarthRadius } from "../enum"
 import { moreThan, is, lessThan, validate, freeze, positive, deprecate } from "develop-utils"
 
-const { abs, asin, pow, sqrt, sin, cos, PI } = window.Math
+const { abs, asin, pow, sqrt, sin, cos, PI } = Math
 
 //TODO delete deprecations at v2.6.x
 
@@ -515,7 +515,7 @@ export class Figure {
     const r1 = (radius1 * 360) / dx
     const r2 = (radius2 * 360) / dx
     for (let i = 0; i < 360; i++) {
-      const radians = Math.toRadians(i)
+      const radians = CzmMath.toRadians(i)
       const x1 = x + r1 * cos(radians)
       const y1 = y + r2 * sin(radians)
       const x2 = (x1 - x) * cos(-rotate) - (y1 - y) * sin(-rotate) + x

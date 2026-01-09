@@ -1,3 +1,4 @@
+import path from "node:path"
 import { defineConfig } from "vitest/config"
 
 export default defineConfig({
@@ -20,9 +21,9 @@ export default defineConfig({
         },
         resolve: {
           preserveSymlinks: true,
-        },
-        optimizeDeps: {
-          exclude: ["develop-utils"],
+          alias: {
+            "develop-utils": path.resolve(__dirname, "./packages/develop-utils/src/index.ts"),
+          },
         },
         ssr: {
           noExternal: ["develop-utils"],

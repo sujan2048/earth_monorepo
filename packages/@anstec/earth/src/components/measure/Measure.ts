@@ -5,7 +5,7 @@ import {
   Color,
   DeveloperError,
   LabelStyle,
-  Math,
+  Math as CzmMath,
   PolylineArrowMaterialProperty,
   PolylineDashMaterialProperty,
   PolylineGlowMaterialProperty,
@@ -209,7 +209,7 @@ export namespace Measure {
   }
 }
 
-const { max } = window.Math
+const { max } = Math
 
 export interface Measure {
   _isDestroyed: boolean
@@ -257,8 +257,8 @@ export class Measure implements Destroyable {
     const interGeos: number[][] = []
     for (let i = 0; i < inter; i++) {
       offset = i / (inter - 1)
-      x = Math.lerp(geos[length - 2].longitude, geos[length - 1].longitude, offset)
-      y = Math.lerp(geos[length - 2].latitude, geos[length - 1].latitude, offset)
+      x = CzmMath.lerp(geos[length - 2].longitude, geos[length - 1].longitude, offset)
+      y = CzmMath.lerp(geos[length - 2].latitude, geos[length - 1].latitude, offset)
       interGeos.push([x, y])
     }
     const interData: Cartographic[] = interGeos.map((g) => Cartographic.fromDegrees(g[0], g[1]))

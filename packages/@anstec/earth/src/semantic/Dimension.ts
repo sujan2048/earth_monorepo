@@ -1,7 +1,7 @@
 import { Cartesian2, Cartesian3, Cartesian4 } from "cesium"
 import { constant, validate, is, moreThan, positive } from "develop-utils"
 
-const { abs } = window.Math
+const { abs } = Math
 
 /**
  * @description 维度描述

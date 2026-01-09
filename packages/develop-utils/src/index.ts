@@ -1,1 +1,1 @@
-export * from "./decorators/index.ts"
+export * from "./decorators"

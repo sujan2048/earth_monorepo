@@ -17,7 +17,7 @@ import { Utils, State } from "../../utils"
 import type { Draw } from "./Draw"
 import type { Earth } from "../../components/Earth"
 
-const { min, max } = window.Math
+const { min, max } = Math
 
 /**
  * @description 动态绘制矩形

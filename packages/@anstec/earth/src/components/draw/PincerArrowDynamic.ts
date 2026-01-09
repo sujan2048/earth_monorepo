@@ -24,7 +24,7 @@ type OptionParam = {
   neckHeightFactor: number
 }
 
-const { pow, sin, cos, PI } = window.Math
+const { pow, sin, cos, PI } = Math
 
 /**
  * @description 动态绘制嵌击箭头

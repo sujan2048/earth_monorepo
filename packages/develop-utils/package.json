@@ -9,6 +9,16 @@
     "release": "pnpm clean && rollup -c rollup.config.ts --bundleConfigAsCjs",
     "type": "ts-node ./scripts/build.ts"
   },
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
   "files": [
     "dist",
     "HISTORY.md",
@@ -16,9 +26,6 @@
     "LICENSE"
   ],
   "sideEffects": false,
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
   "keywords": [],
   "license": "ISC",
   "packageManager": "pnpm@10.26.2",

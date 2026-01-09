@@ -4,7 +4,7 @@ import {
   Cartesian4,
   Color,
   CustomDataSource,
-  Math,
+  Math as CzmMath,
   Matrix3,
   Matrix4,
   PolygonHierarchy,
@@ -79,7 +79,7 @@ type GeographicLike = {
   height?: number
 }
 
-const { abs, cos, round, sin, PI } = window.Math
+const { abs, cos, round, sin, PI } = Math
 
 export interface Radar {
   _isDestroyed: boolean
@@ -449,7 +449,7 @@ export class Radar<T = unknown> implements Destroyable {
       heading = 0
 
     this.#earth.clock.onTick.addEventListener(() => {
-      heading += (2 * Math.PI * radius) / ((duration / 1000.0) * 60) / 90.0
+      heading += (2 * CzmMath.PI * radius) / ((duration / 1000.0) * 60) / 90.0
       pointsArr = this.#calcPane(longitude, latitude, radius, heading)
     })
 

@@ -17,7 +17,7 @@ import { PolygonLayer } from "../../components/layers"
 import type { Draw } from "./Draw"
 import type { Earth } from "../../components/Earth"
 
-const { pow, PI } = window.Math
+const { pow, PI } = Math
 
 /**
  * @description 动态绘制直线箭头

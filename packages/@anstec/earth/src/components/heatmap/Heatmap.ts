@@ -4,7 +4,7 @@ import {
   Cartographic,
   Entity,
   ImageryLayer,
-  Math,
+  Math as CzmMath,
   Rectangle,
   SingleTileImageryProvider,
   WebMercatorProjection,
@@ -75,7 +75,7 @@ export namespace Heatmap {
   }
 }
 
-const { PI, abs, floor, max, round } = window.Math
+const { PI, abs, floor, max, round } = Math
 
 export interface Heatmap {
   _isDestroyed: boolean
@@ -452,10 +452,10 @@ export class Heatmap implements Destroyable {
         this.setWGS84Data({
           data,
           rect: new Rectangle(
-            Math.toDegrees(bbRect.west),
-            Math.toDegrees(bbRect.south),
-            Math.toDegrees(bbRect.east),
-            Math.toDegrees(bbRect.north)
+            CzmMath.toDegrees(bbRect.west),
+            CzmMath.toDegrees(bbRect.south),
+            CzmMath.toDegrees(bbRect.east),
+            CzmMath.toDegrees(bbRect.north)
           ),
         })
       }
@@ -536,10 +536,10 @@ export class Heatmap implements Destroyable {
     this.setWGS84Data({
       data,
       rect: new Rectangle(
-        Math.toDegrees(rect.west),
-        Math.toDegrees(rect.south),
-        Math.toDegrees(rect.east),
-        Math.toDegrees(rect.north)
+        CzmMath.toDegrees(rect.west),
+        CzmMath.toDegrees(rect.south),
+        CzmMath.toDegrees(rect.east),
+        CzmMath.toDegrees(rect.north)
       ),
     })
     this.#moveEnd()

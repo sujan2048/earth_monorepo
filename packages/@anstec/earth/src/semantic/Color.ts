@@ -1,7 +1,7 @@
-import { Color as CzmColor, Math } from "cesium"
+import { Color as CzmColor, Math as CzmMath } from "cesium"
 import { constant, validate, is, lessThan, positive } from "develop-utils"
 
-const { abs, round } = window.Math
+const { abs, round } = Math
 
 //RegExp
 //#rgba
@@ -235,8 +235,8 @@ export class Color {
    * ```
    */
   toCssColorString() {
-    if (this.alpha === 0xff) return `rgb(${this.red},${this.green},${this.blue})`
-    return `rgba(${this.red}, ${this.green}, ${this.blue}, ${this.alpha / 255.0})`
+    if (this.alpha === 0xff) return `rgb(${this.red}, ${this.green}, ${this.blue})`
+    return `rgba(${this.red}, ${this.green}, ${this.blue}, ${this.alpha / 256.0})`
   }
 
   /**
@@ -481,10 +481,10 @@ export class Color {
     @positive() @is(Number) percentage: number,
     @is(Color) result: Color = new Color()
   ) {
-    result.red = Math.lerp(start.red, end.red, percentage)
-    result.green = Math.lerp(start.green, end.green, percentage)
-    result.blue = Math.lerp(start.blue, end.blue, percentage)
-    result.alpha = Math.lerp(start.alpha, end.alpha, percentage)
+    result.red = CzmMath.lerp(start.red, end.red, percentage)
+    result.green = CzmMath.lerp(start.green, end.green, percentage)
+    result.blue = CzmMath.lerp(start.blue, end.blue, percentage)
+    result.alpha = CzmMath.lerp(start.alpha, end.alpha, percentage)
     return result
   }
 }

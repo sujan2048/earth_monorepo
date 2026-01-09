@@ -1,7 +1,7 @@
-import { HeadingPitchRoll, Math } from "cesium"
+import { HeadingPitchRoll, Math as CzmMath } from "cesium"
 import { validate, is, positive } from "develop-utils"
 
-const { abs, PI } = window.Math
+const { abs, PI } = Math
 
 /**
  * @description 姿态描述 <角度制>
@@ -42,9 +42,9 @@ export class Hpr {
    * @returns `HeadingPitchRoll`
    */
   toHeadingPitchRoll() {
-    const h = Math.toRadians(this.heading)
-    const p = Math.toRadians(this.pitch)
-    const r = Math.toRadians(this.roll)
+    const h = CzmMath.toRadians(this.heading)
+    const p = CzmMath.toRadians(this.pitch)
+    const r = CzmMath.toRadians(this.roll)
     return new HeadingPitchRoll(h, p, r)
   }
 

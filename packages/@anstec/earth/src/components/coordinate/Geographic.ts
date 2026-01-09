@@ -1,9 +1,9 @@
-import { Cartesian3, Cartographic, Ellipsoid, Math } from "cesium"
+import { Cartesian3, Cartographic, Ellipsoid, Math as CzmMath } from "cesium"
 import { Utils } from "../../utils"
 import { CoorFormat } from "../../enum"
 import { validate, moreThan, is, multipleOf, lessThan, positive, constant } from "develop-utils"
 
-const { abs } = window.Math
+const { abs } = Math
 
 /**
  * @description 地理坐标，经纬度 <角度制>
@@ -200,13 +200,13 @@ export class Geographic {
    */
   @validate
   static fromRadians(
-    @moreThan(-Math.PI) @lessThan(Math.PI) @is(Number) longitude: number,
-    @moreThan(-Math.PI_OVER_TWO) @lessThan(Math.PI_OVER_TWO) @is(Number) latitude: number,
+    @moreThan(-CzmMath.PI) @lessThan(CzmMath.PI) @is(Number) longitude: number,
+    @moreThan(-CzmMath.PI_OVER_TWO) @lessThan(CzmMath.PI_OVER_TWO) @is(Number) latitude: number,
     @is(Number) height: number = 0,
     @is(Geographic) result?: Geographic
   ) {
-    const lon = Math.toDegrees(longitude)
-    const lat = Math.toDegrees(latitude)
+    const lon = CzmMath.toDegrees(longitude)
+    const lat = CzmMath.toDegrees(latitude)
     if (result) {
       result.longitude = lon
       result.latitude = lat
@@ -235,8 +235,8 @@ export class Geographic {
     @is(Geographic) result?: Geographic
   ) {
     const geo = Cartographic.fromCartesian(cartesian, ellipsoid)
-    const lon = Math.toDegrees(geo.longitude)
-    const lat = Math.toDegrees(geo.latitude)
+    const lon = CzmMath.toDegrees(geo.longitude)
+    const lat = CzmMath.toDegrees(geo.latitude)
     if (result) {
       result.longitude = lon
       result.latitude = lat
@@ -262,8 +262,8 @@ export class Geographic {
     @is(Cartographic) cartographic: Cartographic,
     @is(Geographic) result: Geographic = new Geographic(0, 0)
   ) {
-    const lon = Math.toDegrees(cartographic.longitude)
-    const lat = Math.toDegrees(cartographic.latitude)
+    const lon = CzmMath.toDegrees(cartographic.longitude)
+    const lat = CzmMath.toDegrees(cartographic.latitude)
     result.longitude = lon
     result.latitude = lat
     result.height = cartographic.height
@@ -305,7 +305,7 @@ export class Geographic {
     for (let i = 0; i < coordinates.length; i += 2) {
       const lon = coordinates[i]
       const lat = coordinates[i + 1]
-      geographicPositions.push(new Geographic(Math.toDegrees(lon), Math.toDegrees(lat)))
+      geographicPositions.push(new Geographic(CzmMath.toDegrees(lon), CzmMath.toDegrees(lat)))
     }
     return geographicPositions
   }
@@ -345,7 +345,7 @@ export class Geographic {
     for (let i = 0; i < coordinates.length; i += 3) {
       const lon = coordinates[i]
       const lat = coordinates[i + 1]
-      geographicPositions.push(new Geographic(Math.toDegrees(lon), Math.toDegrees(lat), coordinates[i + 2]))
+      geographicPositions.push(new Geographic(CzmMath.toDegrees(lon), CzmMath.toDegrees(lat), coordinates[i + 2]))
     }
     return geographicPositions
   }

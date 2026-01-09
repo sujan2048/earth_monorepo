@@ -17,7 +17,7 @@ import {
   Frozen,
   JulianDate,
   Material,
-  Math,
+  Math as CzmMath,
   Matrix3,
   Matrix4,
   Pass,
@@ -107,7 +107,7 @@ export namespace PhasedSensorPrimitive {
   }
 }
 
-const { sin, cos, tan, atan, max, random, floor } = window.Math
+const { sin, cos, tan, atan, max, random, floor } = Math
 
 const matrix3Scratch = new Matrix3()
 const nScratch = new Cartesian3()
@@ -452,7 +452,7 @@ export class PhasedSensorPrimitive {
         this._scenePlaneXHalfAngle = maxX
         this._scenePlaneYHalfAngle = angle
 
-        if (Math.toDegrees(this._xHalfAngle) === 90 && Math.toDegrees(this._yHalfAngle) === 90) {
+        if (CzmMath.toDegrees(this._xHalfAngle) === 90 && CzmMath.toDegrees(this._yHalfAngle) === 90) {
           Matrix3.fromRotationZ(this._scenePlaneYHalfAngle, matrix3Scratch)
         } else {
           Matrix3.fromRotationX(this._scenePlaneYHalfAngle * scanDirection, matrix3Scratch)
@@ -465,7 +465,7 @@ export class PhasedSensorPrimitive {
         this._scenePlaneXHalfAngle = angle
         this._scenePlaneYHalfAngle = maxY
 
-        if (Math.toDegrees(this._xHalfAngle) === 90 && Math.toDegrees(this._yHalfAngle) === 90) {
+        if (CzmMath.toDegrees(this._xHalfAngle) === 90 && CzmMath.toDegrees(this._yHalfAngle) === 90) {
           Matrix3.fromRotationZ(this._scenePlaneXHalfAngle, matrix3Scratch)
         } else {
           Matrix3.fromRotationY(this._scenePlaneXHalfAngle * scanDirection, matrix3Scratch)
@@ -907,10 +907,10 @@ const createVertexArray = (primitive: PhasedSensorPrimitive, frameState: FrameSt
   //显示扫描面
   if (primitive.showScanPlane) {
     if (primitive.scanPlaneMode === ScanMode.HORIZONTAL) {
-      const unitScanPlanePositions = computeUnitPosition(primitive, Math.PI_OVER_TWO, 0)
+      const unitScanPlanePositions = computeUnitPosition(primitive, CzmMath.PI_OVER_TWO, 0)
       primitive._scanPlaneVA = createScanPlaneVertexArray(context, unitScanPlanePositions.zox)
     } else {
-      const unitScanPlanePositions = computeUnitPosition(primitive, 0, Math.PI_OVER_TWO)
+      const unitScanPlanePositions = computeUnitPosition(primitive, 0, CzmMath.PI_OVER_TWO)
       primitive._scanPlaneVA = createScanPlaneVertexArray(context, unitScanPlanePositions.zoy)
     }
   }

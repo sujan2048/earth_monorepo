@@ -27,7 +27,7 @@ type OptionParam = {
   swallowTailFactor: number
 }
 
-const { pow, sin, PI } = window.Math
+const { pow, sin, PI } = Math
 
 //TODO fix ground finish error
 /**

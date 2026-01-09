@@ -143,7 +143,7 @@ export namespace WindField {
   }
 }
 
-const { ceil, sqrt } = window.Math
+const { ceil, sqrt } = Math
 
 export interface WindField {
   _isDestroyed: boolean

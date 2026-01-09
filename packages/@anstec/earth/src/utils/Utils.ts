@@ -4,7 +4,7 @@ import { except, moreThan, is, lessThan, validate, freeze, deprecate } from "dev
 import { CoorFormat } from "../enum"
 
 const separator = "Ω"
-const { abs, floor, random } = window.Math
+const { abs, floor, random } = Math
 
 @freeze
 export class Utils {

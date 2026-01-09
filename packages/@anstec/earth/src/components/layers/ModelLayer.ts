@@ -6,7 +6,7 @@ import {
   HeadingPitchRoll,
   HorizontalOrigin,
   LabelStyle,
-  Math,
+  Math as CzmMath,
   Matrix3,
   Matrix4,
   Model,
@@ -29,7 +29,7 @@ import { ViewAngle } from "../../enum"
 import { generate, is, validate } from "develop-utils"
 import type { Earth } from "../../components/Earth"
 
-const { sqrt, floor } = window.Math
+const { sqrt, floor } = Math
 
 export namespace ModelLayer {
   export type StopViewFunc = () => void
@@ -454,7 +454,7 @@ export class ModelLayer<T = unknown>
   }
 
   _useThirdPersonView(id: string, offset = new Cartesian3(50, 0, 20), sensitivity = 0.1) {
-    const rotationZ = Math.PI
+    const rotationZ = CzmMath.PI
 
     const model = this.getData(id)
     // eslint-disable-next-line no-empty-function
@@ -477,8 +477,8 @@ export class ModelLayer<T = unknown>
       if (!mouse) return
       const x = startPosition.x - endPosition.x
       const y = startPosition.y - endPosition.y
-      hpr.heading = (hpr.heading - Math.toRadians(x * sensitivity)) % Math.TWO_PI
-      hpr.pitch = (hpr.pitch + Math.toRadians(y * sensitivity)) % Math.TWO_PI
+      hpr.heading = (hpr.heading - CzmMath.toRadians(x * sensitivity)) % CzmMath.TWO_PI
+      hpr.pitch = (hpr.pitch + CzmMath.toRadians(y * sensitivity)) % CzmMath.TWO_PI
     }, ScreenSpaceEventType.MOUSE_MOVE)
     handler.setInputAction(() => {
       mouse = undefined
@@ -502,7 +502,7 @@ export class ModelLayer<T = unknown>
   }
 
   _useFirstPersonView(id: string, sensitivity = 0.1) {
-    const rotationZ = Math.PI
+    const rotationZ = CzmMath.PI
     const offset = new Cartesian3(20, 0, 0)
 
     const model = this.getEntity(id)
@@ -529,8 +529,8 @@ export class ModelLayer<T = unknown>
       if (!mouse) return
       const x = startPosition.x - endPosition.x
       const y = startPosition.y - endPosition.y
-      hpr.heading = (hpr.heading + Math.toRadians(x * sensitivity)) % Math.TWO_PI
-      hpr.pitch = (hpr.pitch - Math.toRadians(y * sensitivity)) % Math.TWO_PI
+      hpr.heading = (hpr.heading + CzmMath.toRadians(x * sensitivity)) % CzmMath.TWO_PI
+      hpr.pitch = (hpr.pitch - CzmMath.toRadians(y * sensitivity)) % CzmMath.TWO_PI
     }, ScreenSpaceEventType.MOUSE_MOVE)
     handler.setInputAction(() => {
       mouse = undefined
