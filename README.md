@@ -4,12 +4,12 @@
 
 packages/ sources  
  ├─@anstec/  
- │ ├─earth/ simpler module for gis based on cesium
-│ ├─earth-plugins/ plugins for earth  
- │ ├─earth-react/ react hooks for earth  
- │ └─earth-vue/ vue hooks for earth  
- ├─build-utils/ shared rollup configs  
- └─develop-utils/ decorators: validator and funtional
+ │ ├─earth/           -simpler module for gis based on cesium  
+ │ ├─earth-plugins/   -plugins for earth  
+ │ ├─earth-react/     -react hooks for earth  
+ │ └─earth-vue/       -vue hooks for earth  
+ ├─build-utils/       -shared rollup configs  
+ └─develop-utils/     -decorators: validator and funtional  
 
 ### Quick start
 
