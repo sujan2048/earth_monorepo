@@ -1,12 +1,17 @@
 export default {
   import: ["@cspell/dict-lorem-ipsum/cspell-ext.json"],
   caseSensitive: false,
-  dictionaries: ["dictionary"],
+  dictionaries: ["custom-dictionary", "css-color"],
   dictionaryDefinitions: [
     {
-      name: "dictionary",
-      path: "./.cspell/dictionary.txt",
+      name: "custom-dictionary",
+      path: "./.cspell/custom-dictionary.txt",
       addWords: true,
+    },
+    {
+      name: "css-color",
+      path: "./.cspell/css-color.txt",
+      addWords: false,
     },
   ],
   ignorePaths: [
@@ -20,7 +25,6 @@ export default {
     "**/static/**",
     "**/out/**",
     "**/tmp/**",
-    "**/*.d.ts",
     "**/*.yaml",
     "**/package.json",
     "**/tsconfig.json",

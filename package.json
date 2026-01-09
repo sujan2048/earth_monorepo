@@ -1,17 +1,21 @@
 {
-  "name": "refactor_monorepo",
+  "name": "earth_monorepo",
   "author": "KrazyPhish",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "pnpm -r build",
+    "commit": "git-cz",
+    "cz": "cross-env NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning' czg",
     "lint:prettier": "prettier --write \"**/*.{js,ts,mjs,cjs,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:eslint": "eslint",
     "lint:cspell": "cspell lint \"**/*.{js,ts,mjs,cjs,json,css,less,scss,vue,html,md}\"",
-    "commit": "git-cz",
-    "cz": "cross-env NODE_OPTIONS='--experimental-transform-types --disable-warning ExperimentalWarning' czg",
     "prepare": "husky",
-    "precommit": "npx lint-staged --config lint-staged.config.ts"
+    "precommit": "npx lint-staged --config lint-staged.config.ts",
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:ci": "vitest run --coverage"
   },
   "config": {
     "commitizen": {
@@ -42,8 +46,11 @@
     "globals": "^16.5.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
+    "minimist": "^1.2.8",
     "prettier": "^3.7.4",
+    "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.51.0"
+    "typescript-eslint": "^8.51.0",
+    "vitest": "^4.0.16"
   }
 }

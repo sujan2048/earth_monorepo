@@ -9,7 +9,6 @@
     "strict": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "noUnusedParameters": true,
     "forceConsistentCasingInFileNames": true,
     "sourceMap": false,
@@ -20,7 +19,9 @@
     "noUnusedLocals": true,
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true
   },
   "exclude": ["node_modules", "dist"]
 }

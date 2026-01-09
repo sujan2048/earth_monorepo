@@ -1,0 +1,13 @@
+{
+  "name": "build-utils",
+  "author": "KrazyPhish",
+  "version": "1.0.0",
+  "main": "src/index.ts",
+  "type": "module",
+  "keywords": [],
+  "license": "ISC",
+  "packageManager": "pnpm@10.26.2",
+  "devDependencies": {
+    "rollup": "^4.54.0"
+  }
+}
