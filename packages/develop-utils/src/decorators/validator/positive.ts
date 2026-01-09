@@ -2,9 +2,11 @@ import { useValidatorMaker } from "./validate"
 
 /**
  * @description 参数为正验证装饰器
+ * @param [acceptZero = true] 零值是否合法
  */
-export const positive = (attr?: string | symbol): ParameterDecorator => {
+export const positive = (acceptZero: boolean = true, attr?: string | symbol): ParameterDecorator => {
   const check = (value: number) => {
+    if (acceptZero) return value >= 0
     return value > 0
   }
   const reason = (index: number, key: string | symbol, attr?: string | symbol) => {

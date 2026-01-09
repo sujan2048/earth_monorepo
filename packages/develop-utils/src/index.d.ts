@@ -96,12 +96,6 @@ declare module "develop-utils" {
    */
   export const is: (target: new (...args: any[]) => any, attr?: string | symbol) => ParameterDecorator
   /**
-   * @description 图片格式验证装饰器
-   * @param [format] 格式
-   * @param [attr] 属性名
-   */
-  export const isPic: (format?: "jpg" | "jpeg" | "png", attr?: string | symbol) => ParameterDecorator
-  /**
    * @description 参数小于范围验证装饰器
    * @param anchor 要验证的锚点值
    * @param [include = true] 是否包含边界
@@ -123,8 +117,10 @@ declare module "develop-utils" {
   export const multipleOf: (multiple: number, attr?: string | symbol) => ParameterDecorator
   /**
    * @description 参数为负验证装饰器
+   * @param [acceptZero = true] 零值是否合法
+   * @param [attr] 属性名
    */
-  export const negative: (attr?: string | symbol) => ParameterDecorator
+  export const negative: (acceptZero?: boolean, attr?: string | symbol) => ParameterDecorator
   /**
    * @description 参数多类型验证装饰器
    * @param targets 要验证的类 / 类型
@@ -133,8 +129,10 @@ declare module "develop-utils" {
   export const or: (targets: Array<new (...args: any[]) => any>, attr?: string | symbol) => ParameterDecorator
   /**
    * @description 参数为正验证装饰器
+   * @param [acceptZero = true] 零值是否合法
+   * @param [attr] 属性名
    */
-  export const positive: (attr?: string | symbol) => ParameterDecorator
+  export const positive: (acceptZero?: boolean, attr?: string | symbol) => ParameterDecorator
   /**
    * @description 参数验证装饰器
    */

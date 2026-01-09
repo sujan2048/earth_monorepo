@@ -14,7 +14,7 @@ export const useTypeCheck = (target: new (...args: any[]) => any, value: any) =>
   } else if (target === Object) {
     return typeof value === "object" && value !== null
   } else if (target === Function) {
-    const isClass = target.prototype.writable
+    const isClass = !!target.prototype
     return typeof value === "function" && isClass
   }
   return value instanceof target
