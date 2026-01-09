@@ -18,6 +18,15 @@ export default defineConfig({
           include: ["packages/@anstec/earth/test/**/*.{test,spec}.ts"],
           environment: "jsdom",
         },
+        resolve: {
+          preserveSymlinks: true,
+        },
+        optimizeDeps: {
+          exclude: ["develop-utils"],
+        },
+        ssr: {
+          noExternal: ["develop-utils"],
+        },
       },
     ],
   },
