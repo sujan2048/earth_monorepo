@@ -1,6 +1,6 @@
 import {
   Cartesian2,
-  CzmColor,
+  Color,
   HorizontalOrigin,
   ScreenSpaceEventHandler,
   ScreenSpaceEventType,
@@ -151,7 +151,7 @@ export class BillboardDynamic extends Dynamic<BillboardLayer<Dynamic.Billboard>>
       position: point,
       billboard: { ...data.attr },
       point: {
-        color: CzmColor.RED,
+        color: Color.RED,
         pixelSize: 10,
         disableDepthTestDistance: Number.POSITIVE_INFINITY,
       },

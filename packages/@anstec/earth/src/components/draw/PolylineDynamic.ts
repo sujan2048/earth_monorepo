@@ -1,7 +1,7 @@
 import {
   ArcType,
   CallbackProperty,
-  CzmColor,
+  Color,
   DeveloperError,
   HeightReference,
   PolylineArrowMaterialProperty,
@@ -34,14 +34,14 @@ export class PolylineDynamic extends Dynamic<PolylineLayer<Dynamic.Polyline>> {
   #getMaterial(materialType: PolylineLayer.MaterialType, materialUniforms?: PolylineLayer.MaterialUniforms) {
     switch (materialType) {
       case "Color": {
-        return materialUniforms?.color ?? CzmColor.RED
+        return materialUniforms?.color ?? Color.RED
       }
       case "PolylineArrow": {
-        return new PolylineArrowMaterialProperty(materialUniforms?.color ?? CzmColor.RED)
+        return new PolylineArrowMaterialProperty(materialUniforms?.color ?? Color.RED)
       }
       case "PolylineDash": {
         return new PolylineDashMaterialProperty({
-          gapColor: CzmColor.TRANSPARENT,
+          gapColor: Color.TRANSPARENT,
           dashLength: 8,
           ...materialUniforms,
         })
@@ -53,7 +53,7 @@ export class PolylineDynamic extends Dynamic<PolylineLayer<Dynamic.Polyline>> {
       }
       case "PolylineOutline": {
         return new PolylineOutlineMaterialProperty({
-          outlineColor: CzmColor.WHITE,
+          outlineColor: Color.WHITE,
           outlineWidth: 1,
           ...materialUniforms,
         })
@@ -86,7 +86,7 @@ export class PolylineDynamic extends Dynamic<PolylineLayer<Dynamic.Polyline>> {
     loop = false,
     keep = true,
     materialType = "Color",
-    materialUniforms = { color: CzmColor.RED },
+    materialUniforms = { color: Color.RED },
     onMove,
     onEvery,
     onFinish,
@@ -223,7 +223,7 @@ export class PolylineDynamic extends Dynamic<PolylineLayer<Dynamic.Polyline>> {
           position: value,
           point: {
             pixelSize: 10,
-            color: CzmColor.LIGHTBLUE,
+            color: Color.LIGHTBLUE,
             heightReference: HeightReference.CLAMP_TO_GROUND,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
           },

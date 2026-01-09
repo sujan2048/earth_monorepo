@@ -1,7 +1,7 @@
 import {
   Cartesian2,
   Cartesian3,
-  CzmColor,
+  Color,
   ColorBlendMode,
   HeadingPitchRoll,
   HorizontalOrigin,
@@ -59,10 +59,10 @@ export namespace ModelLayer {
    * @property [asynchronous = true] 异步加载
    * @property [hpr] {@link HeadingPitchRoll} 欧拉角
    * @property [minimumPixelSize = 24] 模型近似最小像素
-   * @property [color] {@link CzmColor} 颜色
+   * @property [color] {@link Color} 颜色
    * @property [colorBlendMode = {@link ColorBlendMode.MIX}] 颜色混合模式
    * @property [colorBlendAmount = 0.5] 混合程度，在`colorBlendMode`值为`MIX`时生效
-   * @property [silhouetteColor = {@link CzmColor.LIGHTYELLOW}] 轮廓颜色
+   * @property [silhouetteColor = {@link Color.LIGHTYELLOW}] 轮廓颜色
    * @property [silhouetteSize = 1] 轮廓大小
    * @property [animationLoop = {@link ModelAnimationLoop.REPEAT}] 动画方式
    * @property [distanceDisplayCondition] {@link DistanceDisplayCondition} 按距离设置可见性
@@ -77,10 +77,10 @@ export namespace ModelLayer {
     asynchronous?: boolean
     hpr?: HeadingPitchRoll
     minimumPixelSize?: number
-    color?: CzmColor
+    color?: Color
     colorBlendMode?: ColorBlendMode
     colorBlendAmount?: number
-    silhouetteColor?: CzmColor
+    silhouetteColor?: Color
     silhouetteSize?: number
     animationLoop?: ModelAnimationLoop
     distanceDisplayCondition?: DistanceDisplayCondition
@@ -93,8 +93,8 @@ export namespace ModelLayer {
    * @property [position] {@link Cartesian3} 位置
    * @property [hpr] {@link HeadingPitchRoll} 欧拉角
    * @property [minimumPixelSize = 24] 模型近似最小像素
-   * @property [color] {@link CzmColor} 颜色
-   * @property [silhouetteColor = {@link CzmColor.LIGHTYELLOW}] 轮廓颜色
+   * @property [color] {@link Color} 颜色
+   * @property [silhouetteColor = {@link Color.LIGHTYELLOW}] 轮廓颜色
    * @property [distanceDisplayCondition] {@link DistanceDisplayCondition} 按距离设置可见性
    * @property [label] {@link LabelSetParam} 对应标签
    * @property [envelope] {@link EnvelopeSetParam} 对应包络
@@ -102,8 +102,8 @@ export namespace ModelLayer {
   export type SetParam<T> = {
     position?: Cartesian3
     hpr?: HeadingPitchRoll
-    color?: CzmColor
-    silhouetteColor?: CzmColor
+    color?: Color
+    silhouetteColor?: Color
     distanceDisplayCondition?: DistanceDisplayCondition
     label?: LabelSetParam<T>
     envelope?: EnvelopeSetParam<T>
@@ -186,7 +186,7 @@ export class ModelLayer<T = unknown>
     color,
     colorBlendMode = ColorBlendMode.MIX,
     colorBlendAmount = 0.5,
-    silhouetteColor = CzmColor.LIGHTYELLOW,
+    silhouetteColor = Color.LIGHTYELLOW,
     silhouetteSize = 1,
     hightReference,
     distanceDisplayCondition,
@@ -223,8 +223,8 @@ export class ModelLayer<T = unknown>
             font: "16px Helvetica",
             horizontalOrigin: HorizontalOrigin.CENTER,
             verticalOrigin: VerticalOrigin.CENTER,
-            fillColor: CzmColor.RED,
-            outlineColor: CzmColor.WHITE,
+            fillColor: Color.RED,
+            outlineColor: Color.WHITE,
             outlineWidth: 1,
             style: LabelStyle.FILL_AND_OUTLINE,
             ...label,

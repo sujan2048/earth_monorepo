@@ -1,5 +1,5 @@
 import {
-  CzmColor,
+  Color,
   ScreenSpaceEventHandler,
   ScreenSpaceEventType,
   type Cartesian3,
@@ -39,7 +39,7 @@ export class PointDynamic extends Dynamic<PointLayer<Dynamic.Point>> {
   draw({
     id = Utils.uuid(),
     module = DefaultModuleName.POINT,
-    color = CzmColor.RED,
+    color = Color.RED,
     pixelSize = 5,
     limit = 0,
     keep = true,
@@ -132,7 +132,7 @@ export class PointDynamic extends Dynamic<PointLayer<Dynamic.Point>> {
       point: {
         color: data.attr.color,
         pixelSize: data.attr.pixelSize,
-        outlineColor: CzmColor.WHITESMOKE,
+        outlineColor: Color.WHITESMOKE,
         outlineWidth: 1,
         disableDepthTestDistance: Number.POSITIVE_INFINITY,
       },

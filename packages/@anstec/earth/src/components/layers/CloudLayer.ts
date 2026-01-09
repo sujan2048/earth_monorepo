@@ -1,4 +1,4 @@
-import { Cartesian3, CloudCollection, type Cartesian2, type CzmColor, type CumulusCloud } from "cesium"
+import { Cartesian3, CloudCollection, type Cartesian2, type Color, type CumulusCloud } from "cesium"
 import { Layer } from "../../abstract"
 import { Utils } from "../../utils"
 import { is, validate } from "develop-utils"
@@ -20,7 +20,7 @@ export namespace CloudLayer {
    * @property [data] 附加数据
    * @property [show = true] 是否显示
    * @property [brightness = 0] 灰度 `[0, 1]`
-   * @property [color = {@link CzmColor.WHITE}] 颜色
+   * @property [color = {@link Color.WHITE}] 颜色
    * @property [scale] {@link Cartesian2} 缩放
    * @property [maximumSize] {@link Cartesian3} 云体最大渲染椭球体积
    * @property [slice = 0.5] 切片值 `[0, 1]`，为云的外观选择特定横截面
@@ -35,7 +35,7 @@ export namespace CloudLayer {
     data?: T
     show?: boolean
     brightness?: number
-    color?: CzmColor
+    color?: Color
     scale?: Cartesian2
     maximumSize?: Cartesian3
     slice?: number

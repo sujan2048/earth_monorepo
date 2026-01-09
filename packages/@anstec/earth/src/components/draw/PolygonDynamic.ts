@@ -1,7 +1,7 @@
 import {
   CallbackProperty,
   Cartesian2,
-  CzmColor,
+  Color,
   HeightReference,
   PolygonHierarchy,
   ScreenSpaceEventHandler,
@@ -43,8 +43,8 @@ export class PolygonDynamic extends Dynamic<PolygonLayer<Dynamic.Polygon>> {
   draw({
     id = Utils.uuid(),
     module = DefaultModuleName.POLYGON,
-    color = CzmColor.RED.withAlpha(0.4),
-    outlineColor = CzmColor.RED.withAlpha(0.4),
+    color = Color.RED.withAlpha(0.4),
+    outlineColor = Color.RED.withAlpha(0.4),
     outlineWidth = 1,
     keep = true,
     ground = false,
@@ -202,7 +202,7 @@ export class PolygonDynamic extends Dynamic<PolygonLayer<Dynamic.Polygon>> {
           position: value,
           point: {
             pixelSize: 10,
-            color: CzmColor.LIGHTBLUE,
+            color: Color.LIGHTBLUE,
             heightReference: HeightReference.CLAMP_TO_GROUND,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
           },

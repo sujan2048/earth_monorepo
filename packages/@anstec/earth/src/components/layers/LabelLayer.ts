@@ -1,6 +1,6 @@
 import {
   Cartesian3,
-  CzmColor,
+  Color,
   HorizontalOrigin,
   LabelCollection,
   LabelStyle,
@@ -24,10 +24,10 @@ export namespace LabelLayer {
    * @property position {@link Cartesian3} 位置
    * @property text 文本
    * @property [font = ”14px sans-serif] 字体
-   * @property [fillColor = {@link CzmColor.RED}] 字体色
-   * @property [outlineColor = {@link CzmColor.RED}] 字体描边色
+   * @property [fillColor = {@link Color.RED}] 字体色
+   * @property [outlineColor = {@link Color.RED}] 字体描边色
    * @property [outlineWidth = 1] 字体描边宽度
-   * @property [backgroundColor = new {@link CzmColor}(0.165, 0.165, 0.165, 0.8)] 背景色
+   * @property [backgroundColor = new {@link Color}(0.165, 0.165, 0.165, 0.8)] 背景色
    * @property [showBackground = false] 是否渲染背景
    * @property [backgroundPadding = new {@link Cartesian2}(7, 5)] 背景边距
    * @property [style = {@link LabelStyle.FILL_AND_OUTLINE}] 标签样式
@@ -47,10 +47,10 @@ export namespace LabelLayer {
     position: Cartesian3
     text: string
     font?: string
-    fillColor?: CzmColor
-    outlineColor?: CzmColor
+    fillColor?: Color
+    outlineColor?: Color
     outlineWidth?: number
-    backgroundColor?: CzmColor
+    backgroundColor?: Color
     showBackground?: boolean
     backgroundPadding?: Cartesian2
     style?: LabelStyle
@@ -119,8 +119,8 @@ export class LabelLayer<T = unknown> extends Layer<LabelCollection, Label, Layer
     const id = param.id ?? Utils.uuid()
     const option = {
       font: "14px Helvetica",
-      fillColor: CzmColor.RED,
-      outlineColor: CzmColor.RED,
+      fillColor: Color.RED,
+      outlineColor: Color.RED,
       outlineWidth: 1,
       style: LabelStyle.FILL_AND_OUTLINE,
       horizontalOrigin: HorizontalOrigin.CENTER,

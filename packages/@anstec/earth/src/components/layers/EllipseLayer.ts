@@ -1,7 +1,7 @@
 import {
   Cartesian3,
   ClassificationType,
-  CzmColor,
+  Color,
   ColorGeometryInstanceAttribute,
   EllipseGeometry,
   GeometryInstance,
@@ -30,7 +30,7 @@ export namespace EllipseLayer {
    * @property minorAxis 短半径
    * @property [rotation] 旋转
    * @property [height] 高度
-   * @property [color = {@link CzmColor.RED}] 填充色
+   * @property [color = {@link Color.RED}] 填充色
    * @property [ground = false] 是否贴地
    * @property [label] {@link LabelAddParam} 对应标签
    */
@@ -40,7 +40,7 @@ export namespace EllipseLayer {
     minorAxis: number
     rotation?: number
     height?: number
-    color?: CzmColor
+    color?: Color
     ground?: boolean
     label?: LabelAddParam<T>
   }
@@ -82,7 +82,7 @@ export class EllipseLayer<T = unknown>
         majorAxis: param.majorAxis,
         minorAxis: param.minorAxis,
         rotation: param.rotation ?? 0,
-        color: param.color ?? CzmColor.RED.withAlpha(0.4),
+        color: param.color ?? Color.RED.withAlpha(0.4),
         ground: param.ground ?? false,
         height: param.height ?? Geographic.fromCartesian(param.center).height,
       },
@@ -91,8 +91,8 @@ export class EllipseLayer<T = unknown>
             font: "16px Helvetica",
             horizontalOrigin: HorizontalOrigin.CENTER,
             verticalOrigin: VerticalOrigin.CENTER,
-            fillColor: CzmColor.RED,
-            outlineColor: CzmColor.WHITE,
+            fillColor: Color.RED,
+            outlineColor: Color.WHITE,
             outlineWidth: 1,
             style: LabelStyle.FILL_AND_OUTLINE,
             ...param.label,

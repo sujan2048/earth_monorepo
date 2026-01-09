@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
-  CzmColor,
+  Color,
   PinBuilder,
   PrimitiveCollection,
   VerticalOrigin,
@@ -18,15 +18,15 @@ export namespace Cluster {
   type PinNum = "single" | "pin10" | "pin50" | "pin100" | "pin200" | "pin500" | "pin999"
 
   /**
-   * @property [single = {@link CzmColor.VIOLET}] 单个标签颜色样式
-   * @property [pin10 = {@link CzmColor.BLUE}] `10+`标签颜色样式
-   * @property [pin50 = {@link CzmColor.GREEN}] `50+`标签颜色样式
-   * @property [pin100 = {@link CzmColor.YELLOW}] `100+`标签颜色样式
-   * @property [pin200 = {@link CzmColor.ORANGE}] `200+`标签颜色样式
-   * @property [pin500 = {@link CzmColor.ORANGERED}] `500+`标签颜色样式
-   * @property [pin999 = {@link CzmColor.RED}] `999+`标签颜色样式
+   * @property [single = {@link Color.VIOLET}] 单个标签颜色样式
+   * @property [pin10 = {@link Color.BLUE}] `10+`标签颜色样式
+   * @property [pin50 = {@link Color.GREEN}] `50+`标签颜色样式
+   * @property [pin100 = {@link Color.YELLOW}] `100+`标签颜色样式
+   * @property [pin200 = {@link Color.ORANGE}] `200+`标签颜色样式
+   * @property [pin500 = {@link Color.ORANGERED}] `500+`标签颜色样式
+   * @property [pin999 = {@link Color.RED}] `999+`标签颜色样式
    */
-  export type PinStyle = { [K in PinNum]?: CzmColor }
+  export type PinStyle = { [K in PinNum]?: Color }
 
   /**
    * @description 自定义样式
@@ -112,17 +112,15 @@ export class Cluster implements Destroyable {
 
     this.#cluster.initialize(this.#earth.scene)
 
-    this._pin999 = this.#pinBuilder.fromText("999+", options.style?.pin999 || CzmColor.RED, 48).toDataURL()
-    this._pin500 = this.#pinBuilder.fromText("500+", options.style?.pin500 || CzmColor.ORANGERED, 48).toDataURL()
-    this._pin200 = this.#pinBuilder.fromText("200+", options.style?.pin200 || CzmColor.ORANGE, 48).toDataURL()
-    this._pin100 = this.#pinBuilder.fromText("100+", options.style?.pin100 || CzmColor.YELLOW, 48).toDataURL()
-    this._pin50 = this.#pinBuilder.fromText("50+", options.style?.pin50 || CzmColor.GREEN, 48).toDataURL()
-    this._pin10 = this.#pinBuilder.fromText("10+", options.style?.pin10 || CzmColor.BLUE, 48).toDataURL()
+    this._pin999 = this.#pinBuilder.fromText("999+", options.style?.pin999 || Color.RED, 48).toDataURL()
+    this._pin500 = this.#pinBuilder.fromText("500+", options.style?.pin500 || Color.ORANGERED, 48).toDataURL()
+    this._pin200 = this.#pinBuilder.fromText("200+", options.style?.pin200 || Color.ORANGE, 48).toDataURL()
+    this._pin100 = this.#pinBuilder.fromText("100+", options.style?.pin100 || Color.YELLOW, 48).toDataURL()
+    this._pin50 = this.#pinBuilder.fromText("50+", options.style?.pin50 || Color.GREEN, 48).toDataURL()
+    this._pin10 = this.#pinBuilder.fromText("10+", options.style?.pin10 || Color.BLUE, 48).toDataURL()
 
     for (let i = 0; i < this._singlePins.length; i++) {
-      this._singlePins[i] = this.#pinBuilder
-        .fromText(`${i + 2}`, options.style?.single || CzmColor.VIOLET, 48)
-        .toDataURL()
+      this._singlePins[i] = this.#pinBuilder.fromText(`${i + 2}`, options.style?.single || Color.VIOLET, 48).toDataURL()
     }
 
     this.setStyle(options.customStyle)

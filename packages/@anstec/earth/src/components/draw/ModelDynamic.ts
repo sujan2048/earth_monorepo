@@ -1,5 +1,5 @@
 import {
-  CzmColor,
+  Color,
   HeightReference,
   ScreenSpaceEventHandler,
   ScreenSpaceEventType,
@@ -42,7 +42,7 @@ export class ModelDynamic extends Dynamic<ModelLayer<Dynamic.Model>> {
     module = DefaultModuleName.MODEL,
     url,
     scale = 1,
-    silhouetteColor = CzmColor.LIGHTYELLOW,
+    silhouetteColor = Color.LIGHTYELLOW,
     silhouetteSize = 1,
     minimumPixelSize = 24,
     limit = 1,
@@ -147,7 +147,7 @@ export class ModelDynamic extends Dynamic<ModelLayer<Dynamic.Model>> {
       position: point,
       // model: { ...data.attr, heightReference: HeightReference.CLAMP_TO_GROUND },
       point: {
-        color: CzmColor.RED,
+        color: Color.RED,
         pixelSize: 10,
         disableDepthTestDistance: Number.POSITIVE_INFINITY,
       },

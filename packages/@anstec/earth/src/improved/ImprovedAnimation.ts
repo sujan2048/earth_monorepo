@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   AnimationViewModel,
-  CzmColor,
+  Color,
   defined,
   destroyObject,
   DeveloperError,
@@ -18,19 +18,19 @@ const xlinkNS = "http://www.w3.org/1999/xlink"
 
 let widgetForDrag: ImprovedAnimation | undefined
 
-const gradientEnabledColor0 = CzmColor.fromCssColorString("rgba(247,250,255,0.384)")
-const gradientEnabledColor1 = CzmColor.fromCssColorString("rgba(143,191,255,0.216)")
-const gradientEnabledColor2 = CzmColor.fromCssColorString("rgba(153,197,255,0.098)")
-const gradientEnabledColor3 = CzmColor.fromCssColorString("rgba(255,255,255,0.086)")
+const gradientEnabledColor0 = Color.fromCssColorString("rgba(247,250,255,0.384)")
+const gradientEnabledColor1 = Color.fromCssColorString("rgba(143,191,255,0.216)")
+const gradientEnabledColor2 = Color.fromCssColorString("rgba(153,197,255,0.098)")
+const gradientEnabledColor3 = Color.fromCssColorString("rgba(255,255,255,0.086)")
 
-const gradientDisabledColor0 = CzmColor.fromCssColorString("rgba(255,255,255,0.267)")
-const gradientDisabledColor1 = CzmColor.fromCssColorString("rgba(255,255,255,0)")
+const gradientDisabledColor0 = Color.fromCssColorString("rgba(255,255,255,0.267)")
+const gradientDisabledColor1 = Color.fromCssColorString("rgba(255,255,255,0)")
 
-const gradientKnobColor = CzmColor.fromCssColorString("rgba(66,67,68,0.3)")
-const gradientPointerColor = CzmColor.fromCssColorString("rgba(0,0,0,0.5)")
+const gradientKnobColor = Color.fromCssColorString("rgba(66,67,68,0.3)")
+const gradientPointerColor = Color.fromCssColorString("rgba(0,0,0,0.5)")
 
 const getElementColor = (element: Element) => {
-  return CzmColor.fromCssColorString(window.getComputedStyle(element).getPropertyValue("color"))
+  return Color.fromCssColorString(window.getComputedStyle(element).getPropertyValue("color"))
 }
 
 const svgIconsById: { [key: string]: { tagName: string; transform?: string; d: string } } = {
@@ -117,8 +117,8 @@ const setShuttleRingPointer = (shuttleRingPointer: SVGElement, knobOuter: SVGEle
   knobOuter.setAttribute("transform", `rotate(${angle})`)
 }
 
-const makeColorStringScratch = new CzmColor()
-const makeColorString = (background: CzmColor, gradient: CzmColor) => {
+const makeColorStringScratch = new Color()
+const makeColorString = (background: Color, gradient: Color) => {
   const gradientAlpha = gradient.alpha
   const backgroundAlpha = 1.0 - gradientAlpha
   makeColorStringScratch.red = background.red * backgroundAlpha + gradient.red * gradientAlpha

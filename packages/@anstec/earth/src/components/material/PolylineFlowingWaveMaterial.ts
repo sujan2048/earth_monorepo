@@ -1,4 +1,4 @@
-import { CzmColor, Material } from "cesium"
+import { Color, Material } from "cesium"
 import { flowingWave } from "../../shaders"
 import { CustomMaterial } from "./CustomMaterial"
 
@@ -13,7 +13,7 @@ export class PolylineFlowingWaveMaterial extends Material {
       fabric: {
         type: options?.fabric.type ?? "PolylineFlowingWave",
         uniforms: {
-          color: CzmColor.RED,
+          color: Color.RED,
           direction: 1,
           length: 48,
           speed: 2,

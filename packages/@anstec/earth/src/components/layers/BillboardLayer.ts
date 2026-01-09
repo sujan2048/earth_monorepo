@@ -5,7 +5,7 @@ import {
   HorizontalOrigin,
   VerticalOrigin,
   type Cartesian2,
-  type CzmColor,
+  type Color,
   type DistanceDisplayCondition,
   type HeightReference,
   type NearFarScalar,
@@ -32,7 +32,7 @@ export namespace BillboardLayer {
    * @property [heightReference = {@link HeightReference.NONE}] 位置高度参考
    * @property [scale = 1] 缩放
    * @property image 图片
-   * @property [color = {@link CzmColor.WHITE}] 颜色
+   * @property [color = {@link Color.WHITE}] 颜色
    * @property [rotation = 0] 旋转
    * @property [alignedAxis = {@link Cartesian3.ZERO}] 轴向量
    * @property [width] 宽度
@@ -53,7 +53,7 @@ export namespace BillboardLayer {
     heightReference?: HeightReference
     scale?: number
     image: string
-    color?: CzmColor
+    color?: Color
     rotation?: number
     alignedAxis?: Cartesian3
     width?: number

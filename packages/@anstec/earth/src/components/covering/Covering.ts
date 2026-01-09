@@ -1,7 +1,7 @@
 import {
   Cartesian2,
   Cartesian3,
-  CzmColor,
+  Color,
   DeveloperError,
   Ellipsoid,
   EllipsoidalOccluder,
@@ -29,14 +29,14 @@ export namespace Covering {
   }
 
   /**
-   * @property [color = new Color(43, 44, 47, 0.8)] {@link CzmColor} 连接线颜色
+   * @property [color = new Color(43, 44, 47, 0.8)] {@link Color} 连接线颜色
    * @property [dashed] 连接线虚线样式参数数组，不传入则为实现样式
    * @property [enabled = true] 是否启用连接线
    * @property [pinned] 连接线与覆盖物的固定位置，传入则将始终锚定在具体点
    * @property [width = 1] 连接线宽度
    */
   export type LineOptions = {
-    color?: CzmColor
+    color?: Color
     dashed?: number[]
     enabled?: boolean
     pinned?: AnchorPosition
@@ -115,7 +115,7 @@ export class Covering<T = unknown> implements Destroyable {
     connectionLine: Covering.LineOptions
   }) {
     const { color, dashed, enabled, width } = param.connectionLine
-    const stroke = color ? color.toCssColorString() : new CzmColor(43, 44, 47, 0.8).toCssColorString()
+    const stroke = color ? color.toCssColorString() : new Color(43, 44, 47, 0.8).toCssColorString()
     const en = enabled ? 1 : 0
     return `
       <line 
@@ -409,7 +409,7 @@ export class Covering<T = unknown> implements Destroyable {
     })
     const line = {
       enabled: true,
-      color: new CzmColor(43, 44, 47, 0.8),
+      color: new Color(43, 44, 47, 0.8),
       width: 1,
       ...connectionLine,
     }

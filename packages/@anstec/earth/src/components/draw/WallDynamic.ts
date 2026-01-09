@@ -1,6 +1,6 @@
 import {
   CallbackProperty,
-  CzmColor,
+  Color,
   ScreenSpaceEventHandler,
   ScreenSpaceEventType,
   type Cartesian3,
@@ -40,9 +40,9 @@ export class WallDynamic extends Dynamic<WallLayer<Dynamic.Wall>> {
   draw({
     id = Utils.uuid(),
     module = DefaultModuleName.WALL,
-    color = CzmColor.ORANGE.withAlpha(0.7),
+    color = Color.ORANGE.withAlpha(0.7),
     height = 2000,
-    outlineColor = CzmColor.ORANGE,
+    outlineColor = Color.ORANGE,
     outlineWidth = 1,
     closed = true,
     keep = true,
@@ -193,7 +193,7 @@ export class WallDynamic extends Dynamic<WallLayer<Dynamic.Wall>> {
           position: value,
           point: {
             pixelSize: 10,
-            color: CzmColor.LIGHTBLUE,
+            color: Color.LIGHTBLUE,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
           },
         })

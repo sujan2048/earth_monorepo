@@ -1,6 +1,6 @@
 import {
   Cartesian3,
-  CzmColor,
+  Color,
   ColorGeometryInstanceAttribute,
   EllipsoidGeometry,
   EllipsoidOutlineGeometry,
@@ -58,7 +58,7 @@ export namespace EllipsoidLayer {
    * @property radii {@link Cartesian3} 球体三轴半径
    * @property [hpr] {@link HeadingPitchRoll} 欧拉角
    * @property [material] {@link Material} 材质
-   * @property [outlineColor = {@link CzmColor.AQUAMARINE}]  边框颜色
+   * @property [outlineColor = {@link Color.AQUAMARINE}]  边框颜色
    * @property [outlineWidth = 1] 边框宽度
    * @property [stackPartitions = 16] 纵向切片数
    * @property [slicePartitions = 8] 径向切片数
@@ -69,7 +69,7 @@ export namespace EllipsoidLayer {
     radii: Cartesian3
     hpr?: HeadingPitchRoll
     material?: Material
-    outlineColor?: CzmColor
+    outlineColor?: Color
     outlineWidth?: number
     stackPartitions?: number
     slicePartitions?: number
@@ -119,9 +119,9 @@ export class EllipsoidLayer<T = unknown>
     center,
     radii,
     material = Material.fromType("Color", {
-      color: CzmColor.AQUAMARINE.withAlpha(0.25),
+      color: Color.AQUAMARINE.withAlpha(0.25),
     }),
-    outlineColor = CzmColor.AQUAMARINE.withAlpha(0.5),
+    outlineColor = Color.AQUAMARINE.withAlpha(0.5),
     outlineWidth = 1,
     stackPartitions = 16,
     slicePartitions = 8,
@@ -149,8 +149,8 @@ export class EllipsoidLayer<T = unknown>
             font: "16px Helvetica",
             horizontalOrigin: HorizontalOrigin.CENTER,
             verticalOrigin: VerticalOrigin.CENTER,
-            fillColor: CzmColor.RED,
-            outlineColor: CzmColor.WHITE,
+            fillColor: Color.RED,
+            outlineColor: Color.WHITE,
             outlineWidth: 1,
             style: LabelStyle.FILL_AND_OUTLINE,
             ...label,
@@ -214,7 +214,7 @@ export class EllipsoidLayer<T = unknown>
               width: 2.5,
             }),
             attributes: {
-              color: ColorGeometryInstanceAttribute.fromColor(CzmColor.RED),
+              color: ColorGeometryInstanceAttribute.fromColor(Color.RED),
             },
           })
           instances.push(instance)
@@ -229,7 +229,7 @@ export class EllipsoidLayer<T = unknown>
             width: 2.5,
           }),
           attributes: {
-            color: ColorGeometryInstanceAttribute.fromColor(CzmColor.RED),
+            color: ColorGeometryInstanceAttribute.fromColor(Color.RED),
           },
         })
         instances.push(instance)

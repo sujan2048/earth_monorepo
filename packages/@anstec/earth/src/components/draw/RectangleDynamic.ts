@@ -2,7 +2,7 @@ import {
   CallbackProperty,
   Cartesian3,
   Cartographic,
-  CzmColor,
+  Color,
   HeightReference,
   Rectangle,
   ScreenSpaceEventHandler,
@@ -45,7 +45,7 @@ export class RectangleDynamic extends Dynamic<RectangleLayer<Dynamic.Rectangle>>
   draw({
     id = Utils.uuid(),
     module = DefaultModuleName.RECTANGLE,
-    color = CzmColor.RED.withAlpha(0.4),
+    color = Color.RED.withAlpha(0.4),
     keep = true,
     ground = false,
     onFinish,
@@ -182,7 +182,7 @@ export class RectangleDynamic extends Dynamic<RectangleLayer<Dynamic.Rectangle>>
           position: value,
           point: {
             pixelSize: 10,
-            color: CzmColor.LIGHTBLUE,
+            color: Color.LIGHTBLUE,
             heightReference: HeightReference.CLAMP_TO_GROUND,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
           },

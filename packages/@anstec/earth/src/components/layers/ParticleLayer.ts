@@ -2,7 +2,7 @@ import {
   Cartesian2,
   Cartesian3,
   CircleEmitter,
-  CzmColor,
+  Color,
   ConeEmitter,
   HeadingPitchRoll,
   Math,
@@ -37,9 +37,9 @@ export namespace ParticleLayer {
    * @property [startScale] 开始时缩放
    * @property [endScale] 结束时缩放
    * @property [scale = 1] 粒子图像比例，覆盖`startScale`和`endScale`
-   * @property [startColor] {@link CzmColor} 开始时颜色
-   * @property [endColor] {@link CzmColor} 结束时颜色
-   * @property [color = {@link CzmColor.WHITE}] 粒子颜色，覆盖`startColor`和`endColor`
+   * @property [startColor] {@link Color} 开始时颜色
+   * @property [endColor] {@link Color} 结束时颜色
+   * @property [color = {@link Color.WHITE}] 粒子颜色，覆盖`startColor`和`endColor`
    * @property [image] 粒子图片源
    * @property [minimumImageSize] {@link Cartesian2} 粒子图片最小值
    * @property [maximumImageSize] {@link Cartesian2} 粒子图片最大值
@@ -68,9 +68,9 @@ export namespace ParticleLayer {
     startScale?: number
     endScale?: number
     scale?: number
-    startColor?: CzmColor
-    endColor?: CzmColor
-    color?: CzmColor
+    startColor?: Color
+    endColor?: Color
+    color?: Color
     image?: string
     minimumImageSize?: Cartesian2
     maximumImageSize?: Cartesian2
@@ -131,8 +131,8 @@ export namespace ParticleLayer {
    * @description 自定义粒子系统
    * @property position {@link Cartesian3} 位置
    * @property [id] ID
-   * @property [startColor] {@link CzmColor} 开始时颜色
-   * @property [endColor] {@link CzmColor} 结束时颜色
+   * @property [startColor] {@link Color} 开始时颜色
+   * @property [endColor] {@link Color} 结束时颜色
    * @property [startScale] 开始时缩放
    * @property [endScale] 结束时缩放
    * @property [minimumSpeed] 粒子最小速度
@@ -145,8 +145,8 @@ export namespace ParticleLayer {
   export type Custom = {
     position: Cartesian3
     id?: string
-    startColor?: CzmColor
-    endColor?: CzmColor
+    startColor?: Color
+    endColor?: Color
     startScale?: number
     endScale?: number
     minimumSpeed?: number
@@ -238,8 +238,8 @@ export class ParticleLayer<T = unknown> extends Layer<PrimitiveCollection, Parti
     const option = {
       id: param.id ?? Utils.uuid(),
       image: fire,
-      startColor: param.startColor ?? CzmColor.RED.withAlpha(0.1),
-      endColor: param.endColor ?? CzmColor.YELLOW.withAlpha(0.5),
+      startColor: param.startColor ?? Color.RED.withAlpha(0.1),
+      endColor: param.endColor ?? Color.YELLOW.withAlpha(0.5),
       minimumSpeed: param.minimumSpeed ?? 2,
       imageSize: new Cartesian2(20, 20),
       emissionRate: 5,
@@ -296,8 +296,8 @@ export class ParticleLayer<T = unknown> extends Layer<PrimitiveCollection, Parti
     const option = {
       id: param.id ?? Utils.uuid(),
       image: smoke,
-      startColor: param.startColor ?? CzmColor.fromCssColorString("#303333").withAlpha(0.1),
-      endColor: param.endColor ?? CzmColor.fromCssColorString("#888888").withAlpha(0.5),
+      startColor: param.startColor ?? Color.fromCssColorString("#303333").withAlpha(0.1),
+      endColor: param.endColor ?? Color.fromCssColorString("#888888").withAlpha(0.5),
       minimumParticleLife: 1,
       maximumParticleLife: 3,
       minimumSpeed: param.minimumSpeed ?? 6,
@@ -347,8 +347,8 @@ export class ParticleLayer<T = unknown> extends Layer<PrimitiveCollection, Parti
     const option = {
       id: param.id ?? Utils.uuid(),
       image: blast,
-      startColor: param.startColor ?? CzmColor.fromCssColorString("#303333").withAlpha(0.1),
-      endColor: param.endColor ?? CzmColor.fromCssColorString("#888888").withAlpha(0.5),
+      startColor: param.startColor ?? Color.fromCssColorString("#303333").withAlpha(0.1),
+      endColor: param.endColor ?? Color.fromCssColorString("#888888").withAlpha(0.5),
       startScale: 0.0,
       minimumSpeed: 1,
       minimumMass: 1,
@@ -405,8 +405,8 @@ export class ParticleLayer<T = unknown> extends Layer<PrimitiveCollection, Parti
     const option = {
       id: param.id ?? Utils.uuid(),
       image: smoke,
-      startColor: param.startColor ?? CzmColor.ORANGERED.withAlpha(0.1),
-      endColor: param.endColor ?? CzmColor.LIGHTGOLDENRODYELLOW.withAlpha(0.7),
+      startColor: param.startColor ?? Color.ORANGERED.withAlpha(0.1),
+      endColor: param.endColor ?? Color.LIGHTGOLDENRODYELLOW.withAlpha(0.7),
       particleLife: 1,
       imageSize: new Cartesian2(1, 1),
       emissionRate: 60,

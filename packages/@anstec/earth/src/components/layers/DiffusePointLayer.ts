@@ -1,4 +1,4 @@
-import { type Viewer, type Scene, type Camera, Cartesian3, CzmColor, Ellipsoid, EllipsoidalOccluder } from "cesium"
+import { type Viewer, type Scene, type Camera, Cartesian3, Color, Ellipsoid, EllipsoidalOccluder } from "cesium"
 import { Utils } from "../../utils"
 import { is, generate, validate } from "develop-utils"
 import { Destroyable, DestroyControl } from "../../abstract"
@@ -23,8 +23,8 @@ export namespace DiffusePointLayer {
    * @property [id] ID
    * @property [className] 类名
    * @property [pixelSize = 10] 像素大小
-   * @property [color = {@link CzmColor.RED}] 颜色
-   * @property [strokeColor = {@link CzmColor.RED}] 描线颜色
+   * @property [color = {@link Color.RED}] 颜色
+   * @property [strokeColor = {@link Color.RED}] 描线颜色
    * @property [data] 数据
    */
   export type AddParam<T> = {
@@ -32,8 +32,8 @@ export namespace DiffusePointLayer {
     id?: string
     className?: string[]
     pixelSize?: number
-    color?: CzmColor
-    strokeColor?: CzmColor
+    color?: Color
+    strokeColor?: Color
     data?: T
   }
 
@@ -96,8 +96,8 @@ export class DiffusePointLayer<T = unknown> implements Destroyable, DestroyContr
       position,
       className = [],
       pixelSize = 10,
-      color = CzmColor.RED,
-      strokeColor = CzmColor.RED,
+      color = Color.RED,
+      strokeColor = Color.RED,
       data,
     }: DiffusePointLayer.AddParam<T>
   ) {

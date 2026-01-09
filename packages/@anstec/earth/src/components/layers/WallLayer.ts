@@ -1,5 +1,5 @@
 import {
-  CzmColor,
+  Color,
   ColorGeometryInstanceAttribute,
   GeometryInstance,
   PerInstanceColorAppearance,
@@ -20,18 +20,18 @@ export namespace WallLayer {
    * @property positions {@link Cartesian3} 位置
    * @property [maximumHeights = 5000] 最大高度
    * @property [minimumHeights = 0] 最小高度
-   * @property [color = {@link CzmColor.LAWNGREEN}] 填充色
+   * @property [color = {@link Color.LAWNGREEN}] 填充色
    * @property [outline = true] 是否渲染边框
-   * @property [outlineColor = {@link CzmColor.WHITESMOKE}] 边框色
+   * @property [outlineColor = {@link Color.WHITESMOKE}] 边框色
    * @property [outlineWidth = 1] 边框宽度
    */
   export type AddParam<T> = Layer.AddParam<T> & {
     positions: Cartesian3[]
     maximumHeights?: number[]
     minimumHeights?: number[]
-    color?: CzmColor
+    color?: Color
     outline?: boolean
-    outlineColor?: CzmColor
+    outlineColor?: Color
     outlineWidth?: number
   }
 }
@@ -53,9 +53,9 @@ export class WallLayer<T = unknown> extends Layer<PrimitiveCollection, Primitive
 
   #getDefaultOption({
     id = Utils.uuid(),
-    color = CzmColor.LAWNGREEN.withAlpha(0.5),
+    color = Color.LAWNGREEN.withAlpha(0.5),
     outline = true,
-    outlineColor = CzmColor.WHITESMOKE.withAlpha(0.8),
+    outlineColor = Color.WHITESMOKE.withAlpha(0.8),
     outlineWidth = 1,
     show = true,
     positions,

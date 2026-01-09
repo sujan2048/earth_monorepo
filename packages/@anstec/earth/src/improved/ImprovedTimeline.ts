@@ -4,7 +4,7 @@
 import {
   Clock,
   ClockRange,
-  CzmColor,
+  Color,
   defined,
   destroyObject,
   DeveloperError,
@@ -222,7 +222,7 @@ export class ImprovedTimeline {
   /**
    * @private
    */
-  addHighlightRange(color: CzmColor, heightInPx: number, base: number) {
+  addHighlightRange(color: Color, heightInPx: number, base: number) {
     const newHighlightRange = new TimelineHighlightRange(color, heightInPx, base)
     this._highlightRanges.push(newHighlightRange)
     this.resize()
@@ -232,7 +232,7 @@ export class ImprovedTimeline {
   /**
    * @private
    */
-  addTrack(interval: TimeInterval, heightInPx: number, color: CzmColor, backgroundColor: CzmColor) {
+  addTrack(interval: TimeInterval, heightInPx: number, color: Color, backgroundColor: Color) {
     const newTrack = new TimelineTrack(interval, heightInPx, color, backgroundColor)
     this._trackList.push(newTrack)
     this._lastHeight = undefined

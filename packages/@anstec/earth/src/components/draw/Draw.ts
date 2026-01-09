@@ -4,7 +4,7 @@ import {
   ScreenSpaceEventType,
   type Cartesian2,
   type Cartesian3,
-  type CzmColor,
+  type Color,
   type HorizontalOrigin,
   type LabelStyle,
   type Rectangle as Rect,
@@ -104,11 +104,11 @@ export namespace Draw {
    * @property [text = "新建文本"] 标签文本
    * @property [font = "14px sans-serif"] 字体样式
    * @property [scale = 1] 缩放
-   * @property [fillColor = {@link CzmColor.BLACK}] 字体填充色
-   * @property [outlineColor = {@link CzmColor.WHITE}] 字体描边色
+   * @property [fillColor = {@link Color.BLACK}] 字体填充色
+   * @property [outlineColor = {@link Color.WHITE}] 字体描边色
    * @property [outlineWidth = 1] 字体描边粗细
    * @property [showBackground = true] 是否显示背景
-   * @property [backgroundColor = {@link CzmColor.LIGHTGREY}] 标签背景色
+   * @property [backgroundColor = {@link Color.LIGHTGREY}] 标签背景色
    * @property [backgroundPadding = {@link Cartesian2.ZERO}] 背景Padding值
    * @property [style = {@link LabelStyle.FILL_AND_OUTLINE}] 标签样式
    * @property [pixelOffset = {@link Cartesian2.ZERO}] 像素偏移
@@ -121,11 +121,11 @@ export namespace Draw {
     text?: string
     font?: string
     scale?: number
-    fillColor?: CzmColor
-    outlineColor?: CzmColor
+    fillColor?: Color
+    outlineColor?: Color
     outlineWidth?: number
     showBackground?: boolean
-    backgroundColor?: CzmColor
+    backgroundColor?: Color
     backgroundPadding?: Cartesian2
     style?: LabelStyle
     pixelOffset?: Cartesian2
@@ -142,14 +142,14 @@ export namespace Draw {
 
   /**
    * @extends Base {@link Base} 基本属性
-   * @property [color = {@link CzmColor.RED}] 笔触填充色
+   * @property [color = {@link Color.RED}] 笔触填充色
    * @property [width = 2] 笔触宽度
    * @property [keep = true] 是否保留绘制图形
    * @property [ground = false] 图形是否贴地
    * @property [onFinish] 绘制结束的回调
    */
   export type Stroke = Base & {
-    color?: CzmColor
+    color?: Color
     width?: number
     keep?: boolean
     ground?: boolean
@@ -163,7 +163,7 @@ export namespace Draw {
 
   /**
    * @extends Base {@link Base} 基本属性
-   * @property [color = {@link CzmColor.RED}] 填充色
+   * @property [color = {@link Color.RED}] 填充色
    * @property [pixelSize = 5] 像素大小
    * @property [limit = 0] 绘制数量，`0`为无限制绘制，手动结束
    * @property [keep = true] 是否保留绘制图形
@@ -171,7 +171,7 @@ export namespace Draw {
    * @property [onFinish] 绘制结束的回调
    */
   export type Point = Base & {
-    color?: CzmColor
+    color?: Color
     pixelSize?: number
     /**
      * @description 绘制数量，`0`为无限制绘制，手动结束
@@ -193,13 +193,13 @@ export namespace Draw {
 
   /**
    * @extends Base {@link Base} 基本属性
-   * @property [color = {@link CzmColor.RED}] 填充色
+   * @property [color = {@link Color.RED}] 填充色
    * @property [keep = true] 是否保留绘制图形
    * @property [ground = false] 图形是否贴地
    * @property [onFinish] 绘制结束的回调
    */
   export type Circle = Base & {
-    color?: CzmColor
+    color?: Color
     /**
      * @description 是否保留绘制图形
      */
@@ -215,13 +215,13 @@ export namespace Draw {
 
   /**
    * @extends Base {@link Base} 基本属性
-   * @property [color = {@link CzmColor.RED}] 填充色
+   * @property [color = {@link Color.RED}] 填充色
    * @property [keep = true] 是否保留绘制图形
    * @property [ground = false] 图形是否贴地
    * @property [onFinish] 绘制结束的回调
    */
   export type Rectangle = Base & {
-    color?: CzmColor
+    color?: Color
     /**
      * @description 是否保留绘制图形
      */
@@ -237,8 +237,8 @@ export namespace Draw {
 
   /**
    * @extends Base {@link Base} 基本属性
-   * @property [color = {@link CzmColor.RED}] 填充色
-   * @property [outlineColor = {@link CzmColor.RED}] 边框颜色
+   * @property [color = {@link Color.RED}] 填充色
+   * @property [outlineColor = {@link Color.RED}] 边框颜色
    * @property [outlineWidth = 1] 边框宽度
    * @property [keep = true] 是否保留绘制图形
    * @property [ground = false] 图形是否贴地
@@ -247,8 +247,8 @@ export namespace Draw {
    * @property [onFinish] 绘制结束的回调
    */
   export type Polygon = Base & {
-    color?: CzmColor
-    outlineColor?: CzmColor
+    color?: Color
+    outlineColor?: Color
     outlineWidth?: number
     keep?: boolean
     ground?: boolean
@@ -265,7 +265,7 @@ export namespace Draw {
   /**
    * @extends Base {@link Base} 基本属性
    * @property [materialType = "Color"] {@link PolylineLayer.MaterialType} 线条材质类型
-   * @property [materialUniforms = { color: {@link CzmColor.RED} }] {@link PolylineLayer.MaterialUniforms} 材质参数
+   * @property [materialUniforms = { color: {@link Color.RED} }] {@link PolylineLayer.MaterialUniforms} 材质参数
    * @property [width = 2] 线条宽度
    * @property [keep = true] 是否保留绘制图形
    * @property [ground = false] 图形是否贴地
@@ -327,7 +327,7 @@ export namespace Draw {
    * @property url 源
    * @property [scale = 1] 缩放
    * @property [minimumPixelSize = 24] 模型的近似最小像素
-   * @property [silhouetteColor = {@link CzmColor.LIGHTYELLOW}] 轮廓颜色
+   * @property [silhouetteColor = {@link Color.LIGHTYELLOW}] 轮廓颜色
    * @property [silhouetteSize = 1] 轮廓大小
    * @property [limit = 0] 绘制数量，`0`为无限制绘制，手动结束
    * @property [keep = true] 是否保留绘制图形
@@ -338,7 +338,7 @@ export namespace Draw {
     url: string
     scale?: number
     minimumPixelSize?: number
-    silhouetteColor?: CzmColor
+    silhouetteColor?: Color
     silhouetteSize?: number
     limit?: number
     keep?: boolean
@@ -353,9 +353,9 @@ export namespace Draw {
 
   /**
    * @extends Base {@link Base} 基本属性
-   * @property [color = {@link CzmColor.ORANGE}] 墙体颜色
+   * @property [color = {@link Color.ORANGE}] 墙体颜色
    * @property [height = 2000] 墙体高度
-   * @property [outlineColor = {@link CzmColor.ORANGE}] 边框颜色
+   * @property [outlineColor = {@link Color.ORANGE}] 边框颜色
    * @property [outlineWidth = 1] 边框宽度
    * @property [closed = true] 是否形成闭合墙体
    * @property [keep = false] 是否保留绘制图形
@@ -364,9 +364,9 @@ export namespace Draw {
    * @property [onFinish] 绘制结束的回调
    */
   export type Wall = Base & {
-    color?: CzmColor
+    color?: Color
     height?: number
-    outlineColor?: CzmColor
+    outlineColor?: Color
     outlineWidth?: number
     closed?: boolean
     keep?: boolean
@@ -388,8 +388,8 @@ export namespace Draw {
    * @property [tailWidthFactor = 0.1] 尾部宽度系数因子
    * @property [neckWidthFactor = 0.2] 颈部宽度系数因子
    * @property [headWidthFactor = 0.25] 头部宽度系数因子
-   * @property [color = {@link CzmColor.YELLOW}] 填充颜色
-   * @property [outlineColor = {@link CzmColor.YELLOW}] 边框颜色
+   * @property [color = {@link Color.YELLOW}] 填充颜色
+   * @property [outlineColor = {@link Color.YELLOW}] 边框颜色
    * @property [outlineWidth = 1] 边框宽度
    * @property [keep = false] 是否保留绘制图形
    * @property [ground = false] 图形是否贴地
@@ -401,8 +401,8 @@ export namespace Draw {
     tailWidthFactor?: number
     neckWidthFactor?: number
     headWidthFactor?: number
-    color?: CzmColor
-    outlineColor?: CzmColor
+    color?: Color
+    outlineColor?: Color
     outlineWidth?: number
     keep?: boolean
     ground?: boolean
@@ -423,8 +423,8 @@ export namespace Draw {
    * @property [tailWidthFactor = 0.1] 尾部宽度系数因子
    * @property [headTailFactor = 0.8] 头尾系数因子
    * @property [swallowTailFactor = 1] 燕尾系数因子
-   * @property [color = {@link CzmColor.YELLOW}] 填充颜色
-   * @property [outlineColor = {@link CzmColor.YELLOW}] 边框颜色
+   * @property [color = {@link Color.YELLOW}] 填充颜色
+   * @property [outlineColor = {@link Color.YELLOW}] 边框颜色
    * @property [outlineWidth = 1] 边框宽度
    * @property [keep = false] 是否保留绘制图形
    * @property [ground = false] 图形是否贴地
@@ -439,8 +439,8 @@ export namespace Draw {
     tailWidthFactor?: number
     headTailFactor?: number
     swallowTailFactor?: number
-    color?: CzmColor
-    outlineColor?: CzmColor
+    color?: Color
+    outlineColor?: Color
     outlineWidth?: number
     keep?: boolean
     ground?: boolean
@@ -459,8 +459,8 @@ export namespace Draw {
    * @property [headWidthFactor = 0.3] 头部宽度系数因子
    * @property [neckHeightFactor = 0.85] 颈部高度系数因子
    * @property [neckWidthFactor = 0.15] 颈部宽度系数因子
-   * @property [color = {@link CzmColor.YELLOW}] 填充颜色
-   * @property [outlineColor = {@link CzmColor.YELLOW}] 边框颜色
+   * @property [color = {@link Color.YELLOW}] 填充颜色
+   * @property [outlineColor = {@link Color.YELLOW}] 边框颜色
    * @property [outlineWidth = 1] 边框宽度
    * @property [keep = false] 是否保留绘制图形
    * @property [ground = false] 图形是否贴地
@@ -472,8 +472,8 @@ export namespace Draw {
     headWidthFactor?: number
     headHeightFactor?: number
     neckHeightFactor?: number
-    color?: CzmColor
-    outlineColor?: CzmColor
+    color?: Color
+    outlineColor?: Color
     outlineWidth?: number
     keep?: boolean
     ground?: boolean

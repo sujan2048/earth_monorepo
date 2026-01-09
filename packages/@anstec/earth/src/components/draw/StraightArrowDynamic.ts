@@ -1,6 +1,6 @@
 import {
   CallbackProperty,
-  CzmColor,
+  Color,
   Cartesian3,
   HeightReference,
   PolygonHierarchy,
@@ -76,8 +76,8 @@ export class StraightArrowDynamic extends Dynamic<PolygonLayer<Dynamic.StraightA
     tailWidthFactor = 0.1,
     neckWidthFactor = 0.2,
     headWidthFactor = 0.25,
-    color = CzmColor.YELLOW.withAlpha(0.5),
-    outlineColor = CzmColor.YELLOW,
+    color = Color.YELLOW.withAlpha(0.5),
+    outlineColor = Color.YELLOW,
     outlineWidth = 1,
     keep = true,
     ground = false,
@@ -221,7 +221,7 @@ export class StraightArrowDynamic extends Dynamic<PolygonLayer<Dynamic.StraightA
           position: value,
           point: {
             pixelSize: 10,
-            color: CzmColor.LIGHTBLUE,
+            color: Color.LIGHTBLUE,
             heightReference: HeightReference.CLAMP_TO_GROUND,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
           },

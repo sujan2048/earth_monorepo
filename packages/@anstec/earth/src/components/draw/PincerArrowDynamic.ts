@@ -1,6 +1,6 @@
 import {
   Cartesian3,
-  CzmColor,
+  Color,
   CallbackProperty,
   HeightReference,
   PolygonHierarchy,
@@ -210,8 +210,8 @@ export class PincerArrowDynamic extends Dynamic<PolygonLayer<Dynamic.PincerArrow
     headWidthFactor = 0.3,
     headHeightFactor = 0.25,
     neckHeightFactor = 0.85,
-    color = CzmColor.YELLOW.withAlpha(0.5),
-    outlineColor = CzmColor.YELLOW,
+    color = Color.YELLOW.withAlpha(0.5),
+    outlineColor = Color.YELLOW,
     outlineWidth = 1,
     keep = true,
     ground = false,
@@ -357,7 +357,7 @@ export class PincerArrowDynamic extends Dynamic<PolygonLayer<Dynamic.PincerArrow
           position: value,
           point: {
             pixelSize: 10,
-            color: CzmColor.LIGHTBLUE,
+            color: Color.LIGHTBLUE,
             heightReference: HeightReference.CLAMP_TO_GROUND,
             disableDepthTestDistance: Number.POSITIVE_INFINITY,
           },

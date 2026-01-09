@@ -1,7 +1,7 @@
 import {
   ArcType,
   CallbackProperty,
-  CzmColor,
+  Color,
   ScreenSpaceEventHandler,
   ScreenSpaceEventType,
   type Cartesian3,
@@ -42,7 +42,7 @@ export class StrokeDynamic<T = unknown> extends Dynamic<PolylineLayer<T>> {
     id = Utils.uuid(),
     module = DefaultModuleName.STROKE,
     width = 2,
-    color = CzmColor.RED,
+    color = Color.RED,
     ground = false,
     keep = true,
     onFinish,

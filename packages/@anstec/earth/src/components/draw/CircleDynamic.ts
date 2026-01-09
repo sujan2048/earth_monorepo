@@ -1,6 +1,6 @@
 import {
   CallbackProperty,
-  CzmColor,
+  Color,
   HeightReference,
   ScreenSpaceEventHandler,
   ScreenSpaceEventType,
@@ -42,7 +42,7 @@ export class CircleDynamic extends Dynamic<EllipseLayer<Dynamic.Circle>> {
   draw({
     id = Utils.uuid(),
     module = DefaultModuleName.CIRCLE,
-    color = CzmColor.RED.withAlpha(0.4),
+    color = Color.RED.withAlpha(0.4),
     keep = true,
     ground = false,
     onFinish,
@@ -175,7 +175,7 @@ export class CircleDynamic extends Dynamic<EllipseLayer<Dynamic.Circle>> {
       position: data.positions[0],
       point: {
         pixelSize: 10,
-        color: CzmColor.LIGHTBLUE,
+        color: Color.LIGHTBLUE,
         heightReference: HeightReference.CLAMP_TO_GROUND,
         disableDepthTestDistance: Number.POSITIVE_INFINITY,
       },
@@ -186,7 +186,7 @@ export class CircleDynamic extends Dynamic<EllipseLayer<Dynamic.Circle>> {
       position: data.positions[1],
       point: {
         pixelSize: 10,
-        color: CzmColor.LIGHTBLUE,
+        color: Color.LIGHTBLUE,
         heightReference: HeightReference.CLAMP_TO_GROUND,
         disableDepthTestDistance: Number.POSITIVE_INFINITY,
       },
