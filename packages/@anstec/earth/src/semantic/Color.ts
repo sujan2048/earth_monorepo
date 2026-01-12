@@ -278,7 +278,7 @@ export class Color {
    */
   @validate
   withAlpha(@positive() @lessThan(1) @is(Number) percentage: number) {
-    const alpha = percentage === 1 ? 255 : percentage * 256.0
+    const alpha = round(percentage * 255.0)
     const color = this.clone()
     color.alpha = alpha
     return color
@@ -311,18 +311,18 @@ export class Color {
     const unit32 = new Uint32Array(arrayBuffer)
     const unit8 = new Uint8Array(arrayBuffer)
     unit32[0] = hex
-    result.red = unit8[0]
-    result.green = unit8[1]
-    result.blue = unit8[2]
-    result.alpha = unit8[3]
+    result.red = unit8[3]
+    result.green = unit8[2]
+    result.blue = unit8[1]
+    result.alpha = unit8[0]
     return result
   }
 
   /**
    * @description 从Hsl标准转换
    * @param [hue = 0] 色相 `[0, 360]`
-   * @param [saturation = 0] 饱和度 `[0, 100]`
-   * @param [lightness = 0] 亮度 `[0, 100]`
+   * @param [saturation = 0] 饱和度 `[0, 1]`
+   * @param [lightness = 0] 亮度 `[0, 1]`
    * @param [alpha = 1] `[0, 1]`
    * @param [result] 存储的对象
    */
@@ -335,32 +335,30 @@ export class Color {
     @is(Color) result: Color = new Color()
   ) {
     let r: number, g: number, b: number
-    const h = hue / 360.0
-    const s = saturation / 100.0
-    const l = lightness / 100.0
+    const h = hue % 360
+    const s = saturation
+    const l = lightness
     const c = (1 - abs(2 * l - 1)) * s
     const x = c * (1 - abs(((h / 60) % 2) - 1))
-    const m = 1 - c / 2
-    if (0 <= hue && hue < 60) {
+    const m = l - c / 2
+    if (h < 60) {
       ;[r, g, b] = [c, x, 0]
-    } else if (hue < 120) {
+    } else if (h < 120) {
       ;[r, g, b] = [x, c, 0]
-    } else if (hue < 180) {
+    } else if (h < 180) {
       ;[r, g, b] = [0, c, x]
-    } else if (hue < 240) {
+    } else if (h < 240) {
       ;[r, g, b] = [0, x, c]
-    } else if (hue < 300) {
+    } else if (h < 300) {
       ;[r, g, b] = [x, 0, c]
     } else {
       ;[r, g, b] = [c, 0, x]
     }
-    const val = (v: number) => round((v + m) * 255.0)
-    const [red, green, blue] = [val(r), val(g), val(b)]
-    const a = alpha === 1 ? 255 : alpha * 256
-    result.alpha = a
-    result.blue = blue
-    result.green = green
-    result.red = red
+    const to255 = (v: number) => round((v + m) * 255)
+    result.red = to255(r)
+    result.green = to255(g)
+    result.blue = to255(b)
+    result.alpha = round(alpha * 255)
     return result
   }
 
@@ -448,8 +446,8 @@ export class Color {
     if (matches !== null) {
       const [h, s, l, a] = [
         parseFloat(matches[1]),
-        parseFloat(matches[2]),
-        parseFloat(matches[3]),
+        parseFloat(matches[2]) / 100,
+        parseFloat(matches[3]) / 100,
         parseFloat(matches[4] ?? "1"),
       ]
       return Color.fromHsl(h, s, l, a, result)
