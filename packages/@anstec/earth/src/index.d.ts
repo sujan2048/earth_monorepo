@@ -6539,7 +6539,7 @@ declare module "@anstec/earth" {
      */
     const CalcMathDistance: (positions: number[][]) => number
     /**
-     * @description 根基两点构成的直线及夹角、半径计算第三点
+     * @description 根据两点构成的直线及夹角、半径计算第三点
      * @param target 基准点
      * @param origin 起始点
      * @param angle 角度
@@ -6739,7 +6739,7 @@ declare module "@anstec/earth" {
      */
     const calcMathDistance: (positions: number[][]) => number
     /**
-     * @description 根基两点构成的直线及夹角、半径计算第三点
+     * @description 根据两点构成的直线及夹角、半径计算第三点
      * @param target 基准点
      * @param origin 起始点
      * @param angle 角度

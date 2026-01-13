@@ -94,7 +94,7 @@ export class Utils {
   /**
    * @description 格式化经度
    * @param longitude 经度
-   * @param format [format = CoorFormat.DMS] {@link CoorFormat} 格式
+   * @param [format = CoorFormat.DMS] {@link CoorFormat} 格式
    * @return 格式化结果
    */
   @validate

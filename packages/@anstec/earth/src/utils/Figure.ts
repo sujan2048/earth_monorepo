@@ -8,6 +8,7 @@ import {
   sampleTerrainMostDetailed,
   PolylinePipeline,
 } from "cesium"
+//@ts-expect-error turf use old declaration types
 import * as turf from "@turf/turf"
 import { Geographic } from "../components/coordinate"
 import { EarthRadius } from "../enum"
@@ -319,21 +320,24 @@ export class Figure {
     let crossed: boolean = false
     const { east, north, south, west } = rectangle
     const points = [
-      new Geographic(west, north),
-      new Geographic(east, north),
-      new Geographic(east, south),
-      new Geographic(west, south),
+      new Geographic(CzmMath.toDegrees(west), CzmMath.toDegrees(north)),
+      new Geographic(CzmMath.toDegrees(east), CzmMath.toDegrees(north)),
+      new Geographic(CzmMath.toDegrees(east), CzmMath.toDegrees(south)),
+      new Geographic(CzmMath.toDegrees(west), CzmMath.toDegrees(south)),
     ]
     const edges: Geographic[][] = [
       [points[0], points[1]],
       [points[1], points[2]],
       [points[2], points[3]],
-      [points[3], points[4]],
+      [points[3], points[0]],
     ]
 
     for (let i = 0; i < polyline.length - 1; i++) {
       if (crossed) break
-      crossed = edges.some((edge) => this.polylineIntersectPolyline([polyline[i], polyline[i + 1]], edge))
+      crossed = edges.some((edge) => {
+        if (i === polyline.length - 1) return false
+        return this.polylineIntersectPolyline([polyline[i], polyline[i + 1]], edge)
+      })
     }
     return crossed
   }
@@ -570,7 +574,7 @@ export class Figure {
   }
 
   /**
-   * @description 根基两点构成的直线及夹角、半径计算第三点
+   * @description 根据两点构成的直线及夹角、半径计算第三点
    * @param target 基准点
    * @param origin 起始点
    * @param angle 角度
@@ -617,7 +621,7 @@ export class Figure {
     else if (origin[1] < target[1] && origin[0] < target[0]) res = d
     else if (origin[1] < target[1] && origin[0] >= target[0]) res = PI - d
     else res = 0
-    return res
+    return res % PI
   }
 
   @deprecate("Figure.calcAzimuth")
@@ -639,7 +643,7 @@ export class Figure {
     @moreThan(2, true, "length") @is(Array) c: number[]
   ) {
     const angle = this.calcAzimuth(b, a) - this.calcAzimuth(b, c)
-    return angle < 0 ? angle + PI * 2 : angle
+    return (angle < 0 ? angle + PI * 2 : angle) % PI
   }
 
   @deprecate("Figure.calcMathAngle")
