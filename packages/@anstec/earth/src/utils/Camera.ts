@@ -37,6 +37,7 @@ export class CameraTool {
         return level
       }
     }
+    return level
   }
 
   /**
