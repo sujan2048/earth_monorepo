@@ -23,8 +23,8 @@ export class Geographic {
   latitude: number
   height: number
   constructor(
-    @moreThan(-180) @lessThan(180) @is(Number) longitude: number,
-    @moreThan(-90) @lessThan(90) @is(Number) latitude: number,
+    @moreThan(-180) @lessThan(180) @is(Number) longitude: number = 0,
+    @moreThan(-90) @lessThan(90) @is(Number) latitude: number = 0,
     @is(Number) height: number = 0
   ) {
     this.longitude = longitude

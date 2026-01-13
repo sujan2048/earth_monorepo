@@ -1159,8 +1159,8 @@ declare module "@anstec/earth" {
 
   /**
    * @description 地理坐标，经纬度 <角度制>
-   * @param longitude 经度 <角度制>
-   * @param latitude 纬度 <角度制>
+   * @param [longitude = 0] 经度 <角度制>
+   * @param [latitude = 0] 纬度 <角度制>
    * @param [height = 0] 海拔高度 `m`
    * @example
    * ```
@@ -1168,7 +1168,7 @@ declare module "@anstec/earth" {
    * ```
    */
   export class Geographic {
-    constructor(longitude: number, latitude: number, height?: number)
+    constructor(longitude?: number, latitude?: number, height?: number)
     longitude: number
     latitude: number
     height: number
