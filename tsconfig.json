@@ -19,10 +19,6 @@
     "isolatedModules": true,
     "verbatimModuleSyntax": true,
     "experimentalDecorators": true,
-    "paths": {
-      "@anstec/earth": ["/packages/@anstec/earth/src/index.ts"],
-      "develop-utils": ["/packages/develop-utils/src/index.ts"]
-    }
   },
   "exclude": ["node_modules", "dist"],
 }

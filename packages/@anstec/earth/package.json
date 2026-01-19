@@ -12,12 +12,14 @@
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
+  "style": "dist/index.css",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
-    }
+    },
+    "./style.css": "./dist/index.css"
   },
   "files": [
     "dist",
@@ -26,7 +28,7 @@
     "LICENSE"
   ],
   "sideEffects": [
-    "dist/style.css"
+    "**/*.css"
   ],
   "keywords": [
     "cesium",
@@ -42,7 +44,7 @@
   "dependencies": {
     "@turf/turf": "^6.5.0",
     "cesium-navigation-es6": "^3.0.9",
-    "develop-utils": "workspace:*",
+    "develop-utils": "workspace: *",
     "kdbush": "^4.0.2",
     "mitt": "^3.0.1"
   },
