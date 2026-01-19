@@ -568,7 +568,7 @@ declare module "@anstec/earth" {
      * 2. 该坐标系统由于Echarts限制，仅支持单实例
      * 3. 对应视图需要开启Echarts插件时运行该方法
      * 4. 其他Echarts图形实例也可加载，但不随视图更新位置
-     * @deprecated use `registerEChartsOverlay` from module `@anstec/earth-plugins`
+     * @deprecated 已删除
      */
     useEcharts(): void
     /**
@@ -1040,7 +1040,7 @@ declare module "@anstec/earth" {
      * ```
      * coordinate.registerMouseCoordinate((data) => { console.log(data) }, true)
      * ```
-     * @deprecated use `GlobalEvent.subscribe` instead, this will be removed at next minor version
+     * @deprecated 已删除
      */
     registerMouseCoordinate(callback: (data: Cartographic) => void, realtime?: boolean): void
     /**
@@ -1049,7 +1049,7 @@ declare module "@anstec/earth" {
      * ```
      * coordinate.unregisterMouseCoordinate()
      * ```
-     * @deprecated use `GlobalEvent.subscribe` instead, this will be removed at next minor version
+     * @deprecated 已删除
      */
     unregisterMouseCoordinate(): void
     /**
@@ -5574,7 +5574,7 @@ declare module "@anstec/earth" {
    * @description Echarts插件图层
    * @param earth {@link Earth} 地球实例
    * @param options {@link EChartsOverlay.ConstructorOptions} 参数
-   * @deprecated use `EChartsOverlay` from module `@anstec/earth-plugins`
+   * @deprecated 已删除
    */
   export class EChartsOverlay {
     constructor(earth: Earth, options?: EChartsOverlay.ConstructorOptions)
@@ -6795,7 +6795,7 @@ declare module "@anstec/earth" {
      * @description 获取随机ID
      * @param [symbol = "-"] 连接符
      * @returns 随机ID
-     * @deprecated use `Utils.uuid`, this will be deleted at next minor version
+     * @deprecated 已删除
      */
     const RandomUUID: (symbol?: string) => string
     /**
@@ -6803,14 +6803,14 @@ declare module "@anstec/earth" {
      * @param id ID
      * @param [module] 模块
      * @returns 编码结果
-     * @deprecated use `Utils.encode`, this will be deleted at next minor version
+     * @deprecated 已删除
      */
     const EncodeId: (id: string, module?: string) => string
     /**
      * @description ID解码
      * @param id 已编码ID
      * @returns ID 模块
-     * @deprecated use `Utils.decode`, this will be deleted at next minor version
+     * @deprecated 已删除
      */
     const DecodeId: (id: string) => { id: string; module?: string }
     /**
@@ -6849,7 +6849,7 @@ declare module "@anstec/earth" {
      * @param [width = 48] 宽度
      * @param [height = 48] 高度
      * @returns Canvas结果
-     * @deprecated use `Utils.convertSvg2Canvas`, this will be deleted at next minor version
+     * @deprecated 已删除
      */
     const ConvertSvg2Canvas: (svg: string, width?: number, height?: number) => Promise<HTMLCanvasElement>
     /**
@@ -6858,7 +6858,7 @@ declare module "@anstec/earth" {
      * @param [width = 48] 宽度
      * @param [height = 48] 高度
      * @returns Canvas结果
-     * @deprecated use `Utils.convertPic2Canvas`, this will be deleted at next minor version
+     * @deprecated 已删除
      */
     const ConvertPic2Canvas: (pic: string, width?: number, height?: number) => Promise<HTMLCanvasElement>
     /**
@@ -8947,7 +8947,7 @@ declare module "@anstec/earth" {
    * @param [cesiumOptions] Cesium设置
    * @param [options] {@link Earth.ConstructorOptions} 设置
    * @returns 地球实例
-   * @deprecated use `createEarth`, this will be deleted at next minor version
+   * @deprecated 已删除
    */
   export const useEarth: (
     id?: string,
@@ -8972,7 +8972,7 @@ declare module "@anstec/earth" {
   /**
    * @description 销毁指定地球并回收相关资源
    * @param [id = "GisContainer"] 指定ID的地球
-   * @deprecated use `recycleEarth`, this will be deleted at next minor version
+   * @deprecated 已删除
    */
   export const useEarthRecycle: (id?: string) => void
   /**
@@ -8985,7 +8985,7 @@ declare module "@anstec/earth" {
    * @param earth 地球
    * @param [option] 控制摇杆参数
    * @returns 控制遥杆
-   * @deprecated use `createNavigation`, this will be deleted at next minor version
+   * @deprecated 已删除
    */
   export const useNavigation: (earth: Earth, option?: CesiumNavigation.ConstructorOptions) => CesiumNavigation
   /**
@@ -8999,7 +8999,7 @@ declare module "@anstec/earth" {
    * @description 创建URL模板的地图瓦片图层
    * @param option {@link UrlTemplateImageryProvider.ConstructorOptions} 参数
    * @returns {UrlTemplateImageryProvider} 地图瓦片
-   * @deprecated new the `UrlTemplateImageryProvider` instance directly, this will be deleted at next minor version
+   * @deprecated 已删除
    */
   export const useTileImageryProvider: (
     option: UrlTemplateImageryProvider.ConstructorOptions
