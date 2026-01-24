@@ -484,7 +484,7 @@ window.addEventListener('touchend',function(e){
 })
 function touchDetect(){
     if(Math.abs(touchStartY-touchEndY)<=30 && (touchEndX-touchStartX) >=50 ) moveRight()
-    if(Math.abs(touchStartY-touchEndY)<=30&& (touchStartX-touchEndX) >=50) moveLeft()
+    if(Math.abs(touchStartY-touchEndY)<=30 && (touchStartX-touchEndX) >=50) moveLeft()
     if(Math.abs(touchStartX-touchEndX)<=30 && (touchStartY-touchEndY) >=50) moveUp()
     if(Math.abs(touchStartX-touchEndX)<=30 && (touchEndY-touchStartY) >=50) moveDown()
 
